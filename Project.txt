@@ -1,3 +1,36 @@
+Q 4.1.2
+FIRST
+ALTER TABLE country
+MODIFY continent
+    enum("Asia", "North America", "South America", "Oceania", "Africa", "Antartica", "Europe", "Americas", "South Pole", "Australia");
+
+UPDATE country
+SET continent = CASE
+WHEN continent = "North America" THEN "Americas"
+WHEN continent = "South America" THEN "Americas"
+WHEN continent = "Oceania" THEN "Australia"
+WHEN continent = "Antartica" THEN "South Pole"
+END;
+
+delimiter //
+create function ren_continent(enum)
+returns enum (((VARCHAR(50)
+deterministic
+begin
+update 
+select * from country
+update country
+set continent = case
+when continent = "North America" then "Americas"
+when continent = "South America" then "Americas"
+when continent = "Oceania" then "Australia"
+when continent = "Antartica" then "South Pole"
+else continent
+end;
+//
+
+
+
 Q 4.1.3
 
 SELECT Continent, Name, MAX(Population)
