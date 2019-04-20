@@ -14,11 +14,9 @@ END;
 
 delimiter //
 create function ren_continent(enum)
-returns enum (((VARCHAR(50)
+returns (data enum('Asia','Europe','North America','Africa','Oceania','Antarctica','South America', 'Americas', 'Australia', 'South Pole')
 deterministic
 begin
-update 
-select * from country
 update country
 set continent = case
 when continent = "North America" then "Americas"
