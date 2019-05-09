@@ -40,6 +40,13 @@ NOT EXACTLY RIGHT, GROUPS BY CONTINENT, BUT THE COUNTRY PULLS THE FIRST ALAPHBET
 
 Q 4.1.4
 
+select person.personname, MIN(person.age), city.name, MIN(city.population), hasvisitedcity.cityID, hasvisitedcity.datearrived
+FROM city
+JOIN hasvisitedcity ON hasvisitedcity.cityID = city.ID
+JOIN person ON person.personID = hasvisitedcity.personID
+WHERE hasvisitedcity.datearrived IS NOT NULL;
+
+
 
 
 
