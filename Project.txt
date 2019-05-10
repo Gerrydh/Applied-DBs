@@ -40,11 +40,21 @@ NOT EXACTLY RIGHT, GROUPS BY CONTINENT, BUT THE COUNTRY PULLS THE FIRST ALAPHBET
 
 Q 4.1.4
 
-select person.personname, MIN(person.age), city.name, MIN(city.population), hasvisitedcity.cityID, hasvisitedcity.datearrived
+Youngest Traveller
+SELECT person.personname, person.age, city.name, city.population
 FROM city
-JOIN hasvisitedcity ON hasvisitedcity.cityID = city.ID
-JOIN person ON person.personID = hasvisitedcity.personID
-WHERE hasvisitedcity.datearrived IS NOT NULL;
+INNER JOIN hasvisitedcity on hasvisitedcity.cityID = city.ID
+Inner JOIN person on person.personID = hasvisitedcity.personID
+ORDER by age ASC
+limit 1;
+
+Smallest Population Visited
+SELECT person.personname, person.age, city.name, city.population
+FROM city
+INNER JOIN hasvisitedcity on hasvisitedcity.cityID = city.ID
+Inner JOIN person on person.personID = hasvisitedcity.personID
+ORDER by population ASC
+limit 1;
 
 
 
