@@ -1,0 +1,9 @@
+    select Name, Indepyear, governmentform,
+    -> case
+    -> when indepyear <= 2009 then "New"
+    -> when indepyear between 2008 and 1960 then "Modern"
+    -> when indepyear between 1959 and 1919 then "Early"
+    -> when indepyear > 1918 then "Old"
+    -> else "N/A"
+    -> end as "Desc"
+    -> from country;
