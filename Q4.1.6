@@ -7,3 +7,26 @@
     -> else "N/A"
     -> end as "Desc"
     -> from country;
+    
+    
+    
+    select name, indepyear, governmentform,
+    case
+    when indepyear <=2009 then "New"
+    when indepyear between "2008" and "1960" then "Modern"
+    when indepyear between "1959" and "1919" then "Early"
+    when indepyear > 1918 then "Old"
+    else "n/a"
+    end as "Desc"
+    from country;
+    
+    
+    select name, indepyear, governmentform,
+    case
+    when indepyear <=2009 then "New"
+    when indepyear < 1960 then "Modern"
+    when indepyear < 1919 then "Early"
+    when indepyear > 1918 then "Old"
+    else "n/a"
+    end as "Desc"
+    from country;
