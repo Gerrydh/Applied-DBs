@@ -69,8 +69,4 @@ END;
 
 
 
-4.3.1
 
-NOT EXACTLY RIGHT
-
-db.docs.aggregate([{$group: {_id: null, Average: {$avg: "$engineSize"}}}])
